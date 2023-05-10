@@ -1,33 +1,47 @@
 {
-  "name": "oldpersonhome",
+  "name": "tcl-store-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/index.ts"
+    "compile": "rimraf ./dist && tsup ./src/index.ts --dts --format cjs,esm  ",
+    "prod": "npx pm2 start ecosystem.config.js --env production",
+    "restart": "pm2 restart ecosystem.config.js --env production",
+    "start": "nodemon",
+    "stop": "npx pm2 stop ecosystem.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "jsonwebtoken": "^9.0.0",
-    "koa": "^2.14.1",
-    "koa-bodyparser": "^4.3.0",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.0",
     "koa-router": "^12.0.0",
     "koa2-cors": "^2.0.6",
-    "mysql2": "^2.3.3"
+    "lodash-es": "^4.17.21",
+    "mysql2": "^2.3.3",
+    "node-xlsx": "^0.21.2",
+    "ts-lodash": "^4.0.11"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.1",
-    "@types/koa": "^2.13.5",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/koa": "^2.13.6",
     "@types/koa-bodyparser": "^4.3.10",
     "@types/koa-router": "^7.4.4",
     "@types/koa2-cors": "^2.0.2",
-    "nodemon": "^2.0.20",
+    "@types/lodash-es": "^4.17.7",
+    "@types/node": "^18.16.3",
+    "fs-extra": "^11.1.1",
+    "nodemon": "^2.0.22",
+    "pm2": "^5.3.0",
+    "rimraf": "^5.0.0",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "tslib": "^2.5.0",
+    "tsup": "^6.7.0",
     "typescript": "^4.9.5"
   }
 }

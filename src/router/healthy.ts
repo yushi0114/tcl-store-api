@@ -12,7 +12,7 @@ const { addHealthyC, updateHealthyC, deleteHealthyC, pageHealthyC } = healthyCon
 const { addHealthyM } = healthyM
 
 // 新增
-healthyRouter.post('/add', verifyAuth, addHealthyM, addHealthyC)
+// healthyRouter.post('/add', verifyAuth, addHealthyM, addHealthyC)
 // 编辑
 healthyRouter.post('/update', verifyAuth, updateHealthyC)
 // 删除

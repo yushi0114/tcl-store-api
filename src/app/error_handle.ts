@@ -1,42 +1,64 @@
-import type { ParameterizedContext } from "koa"
+import type { ParameterizedContext } from 'koa';
+import { ApiResult } from '../global/constants';
+import ErrorTypes from '../global/constants/error_types';
+type MapType = Record<string, { msg: string; status: number }>;
 
-type MapType = Record<string, { msg: string, status: number }>
-
-export default function errorHandle(error: number, ctx: ParameterizedContext) {
+export default function errorHandle(
+  error: ErrorTypes,
+  ctx: ParameterizedContext
+) {
   const map: MapType = {
     0: {
       msg: '用户名或密码不能为空',
-      status: 400
+      status: 400,
     },
     1: {
       msg: '用户名已存在',
-      status: 409
+      status: 409,
     },
     2: {
       msg: '用户名不存在',
-      status: 400
+      status: 400,
     },
     3: {
       msg: '密码错误',
-      status: 400
+      status: 400,
     },
     4: {
       msg: '未授权，token 已过期',
-      status: 401
+      status: 401,
     },
     5: {
       msg: '某些字段必须有值',
-      status: 400
+      status: 400,
+    },
+    6: {
+      msg: '该品类和型号的商品已存在',
+      status: 400,
+    },
+    [ErrorTypes.NOT_EXIST_GOOD]: {
+      msg: '该品类和型号的商品不存在',
+      status: 400,
+    },
+    [ErrorTypes.OVER_LIMIT]: {
+      msg: '输入的商品数量超出最大值',
+      status: 400,
+    },
+    [ErrorTypes.EXIST_POSITION]: {
+      msg: '该仓位已存在',
+      status: 400,
     }
-  }
+  };
 
   if (map[error]) {
-    ctx.body = {
-      msg: map[error].msg
-    }
-    ctx.status = map[error].status
-    return
+    console.log('map[error]: ', map[error]);
+    ctx.body = ApiResult.error({
+      code: map[error].status,
+      message: map[error].msg,
+    });
+    ctx.status = 200;
+    return;
   }
-  ctx.body = 'NOT FOUND'
-  ctx.status = 404
+  ctx.body = 'NOT FOUND';
+  ctx.status = 404;
 }

@@ -5,9 +5,12 @@
 import userMiddleware from './user'
 import oldPersonMiddleware from './oldPerson'
 import healthyM from './healthy'
+import responseMiddleware from './response'
+
 
 export {
   userMiddleware,
   oldPersonMiddleware,
-  healthyM
+  healthyM,
+  responseMiddleware
 }

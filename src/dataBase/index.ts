@@ -20,3 +20,4 @@ connection.getConnection((err) => {
 })
 
 export default connection.promise()
+export const escape = mysql2.escape;

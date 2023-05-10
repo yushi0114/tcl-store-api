@@ -13,6 +13,11 @@ import bedroomController from './bedroom'
 import accidentController from './accident'
 import visitorsController from './visitors'
 import careWorkerController from './careWorker'
+import incomeController from './incomeOrder'
+import outerController from './outerOrder'
+import positionController from './position'
+import saleOrderController from './saleOrder'
+
 
 export {
   userController,
@@ -25,5 +30,9 @@ export {
   bedroomController,
   accidentController,
   visitorsController,
-  careWorkerController
+  careWorkerController,
+  incomeController,
+  outerController,
+  positionController,
+  saleOrderController
 }

@@ -1,31 +1,38 @@
 {
+  "display": "Node Server Config",
   "compilerOptions": {
     "target": "ESNext",
     "module": "CommonJS",
-    // "baseUrl": "./src", // 公共路径
+    "baseUrl": "./", // 公共路径
     "strict": true,
-    "jsx": "preserve",
     "importHelpers": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitThis": true,
-    "outDir": "./build",
-    "types": [
-      "node"
-    ],
+    "outDir": "./dist",
     // "sourceMap": true, 转成 js 代码后不需要 xxx.js.map 文件
     // "declaration": true, // 是否生成声明文件
     // "declarationDir": "build/type",// 声明文件打包的位置
+    "experimentalDecorators": true, /* Enables experimental support for ES7 decorators. */
+    "emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
     "lib": [
-      "esnext",
+      "ESNext",
       "dom",
       "dom.iterable",
       "scripthost"
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+  ],
+  "include": [
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts"
   ]
 }

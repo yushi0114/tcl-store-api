@@ -5,6 +5,10 @@ enum ErrorTypes {
   PASSWORD_ERROR = 3,
   UNAUTHORIZATION = 4,
   REQUIRE_HAVA_VALUE = 5,
+  EXIST_GOOD = 6,
+  NOT_EXIST_GOOD = 7,
+  OVER_LIMIT = 8,
+  EXIST_POSITION = 9
 }
 
 export default ErrorTypes

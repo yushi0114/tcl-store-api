@@ -19,7 +19,7 @@ const {
 const { addOldPersonM } = oldPersonMiddleware
 
 // 新增
-oldPersonRouter.post('/add', verifyAuth, addOldPersonM, addOldPersonC)
+// oldPersonRouter.post('/add', verifyAuth, addOldPersonM, addOldPersonC)
 // 编辑
 oldPersonRouter.post('/update', verifyAuth, updateOldPersonC)
 // 删除

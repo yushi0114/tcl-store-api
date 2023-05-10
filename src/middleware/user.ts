@@ -6,9 +6,9 @@ import md5password from '../utils/md5password'
 
 // 判断用户名密码
 async function verifyUser(ctx: ParameterizedContext, next: Next) {
-  const { username, password, role } = ctx.request.body as IUserInfo
+  const { username, password, roles } = ctx.request.body as IUserInfo
   
-  if (!username || !password || !role) {
+  if (!username || !password || !roles) {
     ctx.app.emit('error', ErrorTypes.USERNAME_OR_PASSWORD_IS_REQUIRED, ctx)
     return
   }

@@ -2,5 +2,5 @@
 /.env
 /keys
 /upload
-/build
+/dist
 /src/app/keys
