@@ -8,7 +8,10 @@ enum ErrorTypes {
   EXIST_GOOD = 6,
   NOT_EXIST_GOOD = 7,
   OVER_LIMIT = 8,
-  EXIST_POSITION = 9
+  EXIST_POSITION = 9,
+  NOT_EXIST_POSITION = 10,
+  NOT_DELETE_POSITION = 11,
+  OLD_PASSWORD_ERROR = 12
 }
 
 export default ErrorTypes

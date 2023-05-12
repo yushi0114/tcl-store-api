@@ -12,7 +12,6 @@ module.exports = {
       log_date_format: 'YYYY-MM-DD HH:mm:ss',
       env_production: {
         NODE_ENV: 'production',
-        PM2_SERVE_PATH: '103.45.185.133',
         PORT: 3000,
       },
     },

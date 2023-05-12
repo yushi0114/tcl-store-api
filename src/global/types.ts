@@ -1,3 +1,5 @@
+import { Recordable } from './../../types/global';
+import { LabelValueOptions } from './../../types/index';
 import type Application from 'koa';
 import type { RoleEnum } from './enums';
 
@@ -9,7 +11,7 @@ export interface IUserInfo {
   /**
    * 创建时间
    */
-  createTime?: Date;
+  createTime?: string;
   /**
    * 描述
    */
@@ -21,7 +23,7 @@ export interface IUserInfo {
   /**
    * 角色
    */
-  roles?: RoleEnum[];
+  roles?: RoleEnum;
   /**
    * 更新人
    */
@@ -29,7 +31,7 @@ export interface IUserInfo {
   /**
    * 更新时间
    */
-  updateTime?: Date;
+  updateTime?: string;
   /**
    * 用户ID，主键
    */
@@ -38,12 +40,36 @@ export interface IUserInfo {
    * 用户名
    */
   username?: string;
+  /**
+   * 昵称
+   */
+  realName?: string;
+  /**
+   * 邮箱
+   */
+  email?: string;
 }
 
-export type Page = {
+/**
+ * changePasswordParams
+ */
+export interface ChangePasswordParams {
+  /**
+   * 新密码
+   */
+  passwordNew: string;
+  /**
+   * 旧密码
+   */
+  passwordOld: string;
+}
+
+export type IRoleList = LabelValueOptions<RoleEnum>;
+
+export type Page<P extends Recordable = Recordable> = {
   pageNum?: number;
   pageSize?: number;
-} & Record<string, any>;
+} & P;
 
 export interface ILogin {
   username: string;
@@ -60,7 +86,7 @@ export interface IOldPersonInfo {
   oldPersonName?: string;
   gender?: number;
   age?: number;
-  birthDate?: string;
+  birthstring?: string;
   phone?: string;
   address?: string;
   relation?: string;
@@ -177,6 +203,41 @@ export interface ICareWorkerInfo {
 }
 
 /**
+ * RoleResultModel
+ */
+export interface RoleResultModel {
+  /**
+   * 创建人
+   */
+  createBy?: string;
+  /**
+   * 创建时间
+   */
+  createTime?: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 角色值
+   */
+  role?: number;
+  /**
+   * 角色ID
+   */
+  roleId?: string;
+  /**
+   * 更新人
+   */
+  updateBy?: string;
+  /**
+   * 更新时间
+   */
+  updateTime?: string;
+}
+
+
+/**
  * IncomingOrderResultModel
  * @desc 进货单
  */
@@ -188,7 +249,7 @@ export interface IncomingOrderResultModel {
   /**
    * 创建时间
    */
-  createTime?: Date;
+  createTime?: string;
   /**
    * 主键
    */
@@ -220,7 +281,7 @@ export interface IncomingOrderResultModel {
   /**
    * 更新时间
    */
-  updateTime?: Date;
+  updateTime?: string;
 }
 
 /**
@@ -247,7 +308,7 @@ export interface OuterOrderResultModel {
   /**
    * 创建时间
    */
-  createTime?: Date;
+  createTime?: string;
   /**
    * 主键
    */
@@ -283,7 +344,7 @@ export interface OuterOrderResultModel {
   /**
    * 更新时间
    */
-  updateTime?: Date;
+  updateTime?: string;
 }
 
 export interface PositionOrderResultModel {
@@ -315,7 +376,7 @@ export interface SaleOrderResultModel {
   /**
    * 创建时间
    */
-  createTime?: Date;
+  createTime?: string;
   /**
    * 主键
    */
@@ -343,7 +404,7 @@ export interface SaleOrderResultModel {
   /**
    * 销售日期
    */
-  saleTime?: Date;
+  saleTime?: string;
   /**
    * 品类
    */
@@ -355,5 +416,5 @@ export interface SaleOrderResultModel {
   /**
    * 更新时间
    */
-  updateTime?: Date;
+  updateTime?: string;
 }

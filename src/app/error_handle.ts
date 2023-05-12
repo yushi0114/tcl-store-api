@@ -47,6 +47,18 @@ export default function errorHandle(
     [ErrorTypes.EXIST_POSITION]: {
       msg: '该仓位已存在',
       status: 400,
+    },
+    [ErrorTypes.NOT_EXIST_POSITION]: {
+      msg: '该仓位不存在',
+      status: 400,
+    },
+    [ErrorTypes.NOT_DELETE_POSITION]: {
+      msg: '该仓位存在关联的进货单、出货单、销售单，暂时无法删除，请先清空库存后在删除此仓位',
+      status: 400,
+    },
+    [ErrorTypes.OLD_PASSWORD_ERROR]: {
+      msg: '旧密码不正确',
+      status: 400,
     }
   };
 
